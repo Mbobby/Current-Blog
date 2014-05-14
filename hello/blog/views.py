@@ -34,3 +34,7 @@ def like(request, article_id):
 	l.save()
 	return HttpResponseRedirect('/blog/get_article/%s' % article_id)
 
+def month_query(request, month_num):
+	return render_to_response('month_query.html', {'article': Article.objects.filter(pub_date__month = month_num)})
+
+
